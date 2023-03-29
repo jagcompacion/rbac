@@ -1,7 +1,8 @@
 import { Outlet, useNavigate, Link } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import AccessControl from "./AccessControl";
-import ROLES from "../constants/roles";
+import userTypes from "../constants/userTypes";
+import roles from "../constants/roles";
 
 const Layout = () => {
   const authJSON = localStorage.getItem("auth");
@@ -22,17 +23,26 @@ const Layout = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <AccessControl allowedRoles={[ROLES.Traveler, ROLES.Ctm]}>
+            <AccessControl allowedUserTypes={[userTypes.CWT_TRAVELER]}>
               <Nav.Link as={Link} to="/profile">
                 Profile
               </Nav.Link>
             </AccessControl>
-            <AccessControl allowedRoles={[ROLES.Ctm, ROLES.Counselor]}>
+            <AccessControl
+              allowedUserTypes={[userTypes.CWT_TRAVELER, userTypes.CWT_USER]}
+              allowedRoles={[
+                roles.GLOBAL_MOBILE_COUNSELOR,
+                roles.ROLE_CLIENT_TRAVELER_MAINTAINER,
+              ]}
+            >
               <Nav.Link as={Link} to="/travelers">
                 Travelers
               </Nav.Link>
             </AccessControl>
-            <AccessControl allowedRoles={[ROLES.Counselor]}>
+            <AccessControl
+              allowedUserTypes={[userTypes.CWT_USER]}
+              allowedRoles={[roles.GLOBAL_MOBILE_COUNSELOR]}
+            >
               <Nav.Link as={Link} to="/counselors">
                 Counselors
               </Nav.Link>

@@ -1,0 +1,17 @@
+{
+  "counselor@gmail.com": {
+    "email": "counselor@gmail.com",
+    "userType": "cwtUser",
+    "roles": ["GLOBAL_MOBILE_COUNSELOR", "ROLE_UNMASK_CREDITCARD"]
+  },
+  "ctm@gmail.com": {
+    "email": "ctm@gmail.com",
+    "userType": "cwtTraveler",
+    "roles": ["ROLE_CLIENT_TRAVELER_MAINTAINER"]
+  },
+  "traveler@gmail.com": {
+    "email": "traveler@gmail.com",
+    "userType": "cwtTraveler",
+    "roles": []
+  }
+}
